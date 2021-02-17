@@ -5,8 +5,8 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-sm" *ngFor="let product of products">
-      <a [routerLink]="['detail']">
+    <div class="col-sm" *ngFor="let product of products; let productId = index">
+      <a [routerLink]="[productId]">
         <!-- /をつけないと、相対パスの移動になる -->
         <div class="card">
           <img src="assets/img/default-placeholder.png" class="card-img-top" alt="...">
