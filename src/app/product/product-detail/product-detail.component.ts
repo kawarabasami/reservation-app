@@ -10,9 +10,22 @@ import { products } from 'src/app/products';
 export class ProductDetailComponent implements OnInit {
 
   product: {
+    coverImage: string;
     name: string;
     price: number;
     description: string;
+    heading1: {
+      title: string;
+      description: string;
+    };
+    heading2: {
+      title: string;
+      description: string;
+    };
+    heading3: {
+      title: string;
+      description: string;
+    };
   } | null = null;
 
   constructor(private route: ActivatedRoute) { }
