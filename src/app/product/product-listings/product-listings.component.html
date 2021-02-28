@@ -1,12 +1,8 @@
 <div class="container">
-  <div class="myclass">
-    <h1>おはよう</h1>
-    <h2>こんにちは</h2>
-  </div>
   <br>
   <div class="row">
     <div class="col-sm" *ngFor="let product of products; let productId = index">
-      <a [routerLink]="[productId]">
+      <a [routerLink]="[product._id]">
         <!-- /をつけないと、相対パスの移動になる -->
         <div class="card">
           <img src="{{product.coverImage}}" class="card-img-top" alt="...">
