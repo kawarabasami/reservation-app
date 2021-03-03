@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'production') { // 本番環境でのみ実施
 
 const PORT = process.env.PORT || '3001'; // heroku上ではprocess.env.PORTの設定を使う
 
-app.listen('3001', function () {
+app.listen(PORT, function () {
     console.log('I am running!');
 });
 
