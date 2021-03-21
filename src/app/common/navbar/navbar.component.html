@@ -10,15 +10,30 @@
         <span class="navbar-toggler-bar"></span>
       </button>
     </div>
-    <div class="navbar-collapse" id="navbarToggler">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a [routerLink]="['/login']" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> メンバーログイン</a>
-        </li>
-        <li class="nav-item">
-          <a [routerLink]="['/register']" class="btn btn-danger btn-round">新規会員登録する</a>
-        </li>
-      </ul>
-    </div>
+
+    <ng-container *ngIf="auth.isAuthenticated()">
+      <!-- ログイン済みの場合、ログインボタンを表示する -->
+      <div class="navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link">ログアウト</a>
+          </li>
+        </ul>
+      </div>
+
+    </ng-container>
+    <ng-container *ngIf="!auth.isAuthenticated()">
+      <!-- ログインしていない場合、ログインボタンなど表示する -->
+      <div class="navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a [routerLink]="['/login']" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> メンバーログイン</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/register']" class="btn btn-danger btn-round">新規会員登録する</a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
   </div>
 </nav>

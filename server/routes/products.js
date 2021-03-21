@@ -1,5 +1,6 @@
 const express = require('express');
 const Product = require('../model/product');
+const UserCtrl = require('../controllers/user');
 const router = express.Router();
 
 router.get('', function (req, res) {
@@ -7,9 +8,10 @@ router.get('', function (req, res) {
 
         res.json(foundProducts);
     });
-})
+});
 
-router.get('/:productId', function (req, res) {
+// UserCtrl.authMiddleware を挟むことで、ユーザ認証を行ってから商品情報を返すことができる
+router.get('/:productId', UserCtrl.authMiddleware, function (req, res) {
     const productId = req.params.productId;
     Product.findById(productId, function (err, foundProduct) {
         if (err || !foundProduct) {
